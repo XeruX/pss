@@ -1,0 +1,83 @@
+<div class="row mx-0">
+    <aside class="col-1 p-0 bg-white" ng-include="'templates/menuBar.html'" ng-show="showMenu"></aside>
+
+    <!-- details-container -->
+    <div class="container-fluid p-5 col-11 bg-white">
+        <div class="text-center">
+            <p><strong>Opis sprintu: </strong><span ng-bind="sprintDet.sprint.description"></span></p>
+            <p><strong>Data od: </strong><span ng-bind="sprintDet.sprint.dateStart | date: 'dd-MM-yyyy'"></span></p>
+            <p><strong>Data do: </strong><span ng-bind="sprintDet.sprint.dateEnd | date: 'dd-MM-yyyy'"></span></p>
+        </div>
+        <div class="text-center mt-3">
+            <h4 style="color: #fc030b;" ng-show="sprintDet.isTaskListEmpty()">Brak zdefiniowanych zadań w tym sprincie!</h4>
+            <h5 style="color: #0394fc;" ng-hide="sprintDet.isTaskListEmpty()">Lista zadań w przeglądanym sprincie:</h5>
+            <ul class="list-group-flush">
+                <li class="list-group-item" ng-repeat="task in sprintDet.taskList">
+                    <p><strong>Nazwa: </strong><span ng-bind="task.name"></span></p>
+                    <p><strong>Opis: </strong><span ng-bind="task.description"></span></p>
+                    <p><strong>Priorytet: </strong><span ng-bind="task.priority"></span></p>
+                    <p><strong>Status: </strong><span ng-bind="task.status"></span></p>
+                    <div ng-hide="sprintDet.isStoryPointListEmpty()">
+                        <p><strong>Story points: </strong></p>
+                        <ul class="list-group-flush">
+                            <li class="list-group-item" ng-repeat="sp in sprintDet.storyPointList">
+                                <div>
+                                    <strong>Opis: </strong><span ng-bind="sp.description"></span>
+                                    <strong>Czy wykonany: </strong><span ng-bind="sp.isDone"></span>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-secondary ml-3" ng-click="">Odznacz</button>
+                                        <button type="button" class="btn btn-danger ml-3" ng-click="">Usuń</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div ng-show="sprintDet.isStoryPointListEmpty()">
+                        <p><strong>Story points: </strong>Brak zdefiniowanych story points!</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- modal create task -->
+    <div>
+        <div class="modal fade" id="createTaskModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nowe zadanie w sprincie</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <form ng-submit="sprintDet.createTask()">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="task-name" class="col-form-label">Nazwa zadania:</label>
+                                <input type="text" class="form-control" id="task-name" maxlength="20" ng-model="sprintDet.task.name" required>
+                                <label for="task-description" class="col-form-label">Opis zadania:</label>
+                                <input type="text" class="form-control" id="task-description" maxlength="50" ng-model="sprintDet.task.description" required>
+                                <label for="task-priority" class="col-form-label">Priorytet:</label>
+                                <input type="number" class="form-control" id="task-priority" maxlength="1" ng-model="sprintDet.task.priority" required>
+                                <label for="task-status" class="col-form-label">Status:</label>
+                                <select class="form-control" id="task-status" ng-model="sprintDet.task.status" required>
+                                    <option>BACKLOG</option>
+                                    <option>TO DO</option>
+                                    <option>IN PROGRESS</option>
+                                    <option>QA</option>
+                                    <option>DONE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Dodaj</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal create task end -->
+</div>

@@ -1,0 +1,61 @@
+<div class="row mx-0">
+    <aside class="col-1 p-0 bg-white" ng-include="'templates/menuBar.html'" ng-show="showMenu"></aside>
+
+    <!-- details-container -->
+    <div class="container-fluid p-5 col-11 bg-white">
+        <div class="text-center">
+            <h3 ng-bind="projectDet.project.name"></h3>
+            <p><strong>Opis: </strong><span ng-bind="projectDet.project.description"></span></p>
+            <p><strong>Administrator: </strong><span ng-bind="projectDet.project.projectAdmin"></span></p>
+        </div>
+        <div class="text-center mt-3">
+            <h4 style="color: #fc030b;" ng-show="projectDet.isSprintListEmpty()">Brak sprintów w tym projekcie!</h4>
+            <h5 style="color: #0394fc;" ng-hide="projectDet.isSprintListEmpty()">Lista sprintów w projekcie:</h5>
+            <ul class="list-group-flush">
+                <li class="list-group-item" ng-repeat="sprint in projectDet.sprintList">
+                    <p><strong>Opis: </strong><span ng-bind="sprint.description"></span></p>
+                    <p><strong>Data startu: </strong><span ng-bind="sprint.dateStart | date: 'dd-MM-yyyy'"></span></p>
+                    <p><strong>Data zakończenia: </strong><span ng-bind="sprint.dateEnd | date: 'dd-MM-yyyy'"></span></p>
+                    <button type="button" class="btn btn-warning" ng-hide="projectDet.isSprintListEmpty()" ng-click="projectDet.openSprint(sprint.id)">Otwórz zadania w sprincie</button>
+                    <button type="button" class="btn btn-danger" ng-hide="projectDet.isSprintListEmpty()" ng-click="projectDet.removeSprint(sprint.id)">Usuń</button>
+                </li>
+                <li class="list-group-item">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createSprintModal">Dodaj sprint</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- modal create sprint -->
+    <div>
+        <div class="modal fade" id="createSprintModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nowy sprint</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <form ng-submit="projectDet.createSprint()">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="sprint-description" class="col-form-label">Opis sprintu:</label>
+                                <input type="text" class="form-control" id="sprint-description" maxlength="50" ng-model="projectDet.sprint.description" required>
+                                <label for="sprint-date-from" class="col-form-label">Data startu sprintu:</label>
+                                <input type="date" class="form-control" id="sprint-date-from" ng-model="projectDet.sprint.dateStart" required>
+                                <label for="sprint-date-to" class="col-form-label">Data zakończenia:</label>
+                                <input type="date" class="form-control" id="sprint-date-to" ng-model="projectDet.sprint.dateEnd" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Dodaj</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal create sprint end -->
+</div>

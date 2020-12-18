@@ -1,0 +1,33 @@
+<div class="row mx-0">
+    <aside class="col-1 p-0 bg-white" ng-include="'templates/menuBar.html'" ng-show="showMenu"></aside>
+
+    <!-- container -->
+    <div class="container-fluid p-5 col-11 bg-white">
+        <div class="text-center">
+            <h3>Dostępne zadania:</h3>
+            <h5 ng-show="taskCtrl.isTaskListEmpty()">Brak zdefiniowanych zadań!!!</h5>
+            <ul class="list-group-flush">
+                <li class="list-group-item" ng-repeat="task in taskCtrl.taskList">
+                    <p><strong>Nazwa: </strong><span ng-bind="task.name"></span></p>
+                    <p><strong>Opis: </strong><span ng-bind="task.description"></span></p>
+                    <p><strong>Priorytet: </strong><span ng-bind="task.priority"></span></p>
+                    <p><strong>Status: </strong><span ng-bind="task.status"></span></p>
+                    <p><strong>Sprint: </strong><span ng-bind="task.sprint.description"></span></p>
+                    <p ng-hide="taskCtrl.isStoryPointListEmpty()"><strong>Story points: </strong>
+                        <ul class="list-group-flush">
+                            <li class="list-group-item" ng-repeat="sp in taskCtrl.storyPointList">
+                                <p>
+                                    <strong>Opis: </strong><span ng-bind="sp.description"></span>
+                                    <button type="button" class="btn btn-danger ml-3" ng-click="">Usuń</button>
+                                </p>
+                                <p><strong>Wykonane: </strong><span ng-bind="sp.isDone"></span></p>
+                            </li>
+                        </ul>
+                    </p>
+                    <p ng-show="taskCtrl.isStoryPointListEmpty()"><strong>Story points: </strong>Brak zdefiniowanych story points!</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- container end -->
+</div>

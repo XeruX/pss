@@ -1,0 +1,71 @@
+﻿body
+{
+	/* Background pattern from Toptal Subtle Patterns */
+	background-image: url(../images/email-pattern.png);
+}
+.container-fluid
+{
+	z-index: 10;
+}
+.home-container
+{
+	height: 88.5vh;
+
+	background: rgba(148,196,255,1);
+	background: -moz-linear-gradient(top, rgba(148,196,255,1) 0%, rgba(148,196,255,1) 39%, rgba(204,224,255,1) 86%, rgba(204,224,255,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(148,196,255,1)), color-stop(39%, rgba(148,196,255,1)), color-stop(86%, rgba(204,224,255,1)), color-stop(100%, rgba(204,224,255,1)));
+	background: -webkit-linear-gradient(top, rgba(148,196,255,1) 0%, rgba(148,196,255,1) 39%, rgba(204,224,255,1) 86%, rgba(204,224,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(148,196,255,1) 0%, rgba(148,196,255,1) 39%, rgba(204,224,255,1) 86%, rgba(204,224,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(148,196,255,1) 0%, rgba(148,196,255,1) 39%, rgba(204,224,255,1) 86%, rgba(204,224,255,1) 100%);
+	background: linear-gradient(to bottom, rgba(148,196,255,1) 0%, rgba(148,196,255,1) 39%, rgba(204,224,255,1) 86%, rgba(204,224,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94c4ff', endColorstr='#cce0ff', GradientType=0 );
+
+	-webkit-box-shadow: 0 0 30px 0 rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 0 30px 0 rgba(0,0,0,0.5);
+	box-shadow: 0 0 30px 0 rgba(0,0,0,0.5);
+}
+.home-container h2
+{
+	color: white;
+	position: relative;
+	top: 300px;
+}
+footer
+{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	background-color: white;
+	width: 100%;
+	height: 4vh;
+	text-align: center;
+	font-size: 18px;
+	padding: 5px;
+	z-index: 10;
+}
+#loginForm,
+#registerForm
+{
+	background-color: white;
+	width: 350px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	padding: 40px 25px;
+	border-radius: 20px;
+
+	-webkit-box-shadow: 0 0 30px 0 rgba(0,0,0,0.75);
+	-moz-box-shadow: 0 0 30px 0 rgba(0,0,0,0.75);
+	box-shadow: 0 0 30px 0 rgba(0,0,0,0.75);
+}
+.card-container
+{
+	display: flex;
+	flex-flow: row wrap;
+}
+.card
+{
+	display: inline-block;
+	flex: 0 1 auto;
+}

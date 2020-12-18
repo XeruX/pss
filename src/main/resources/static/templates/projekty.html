@@ -1,0 +1,99 @@
+<div class="row mx-0">
+    <aside class="col-1 p-0 bg-white" ng-include="'templates/menuBar.html'" ng-show="showMenu"></aside>
+
+    <!-- card-container -->
+    <div class="card-container p-5 col-11">
+        <!-- project cards -->
+        <div class="card col-4" ng-repeat="proj in projectCtrl.projectList">
+            <div class="card-body">
+                <h5 class="card-title" ng-bind="proj.name || 'Tytuł projektu'"></h5>
+                <p class="card-text" ng-bind="proj.description || 'Opis projektu...'"></p>
+                <p class="card-text text-muted text-right"><small ng-bind="'Administrator: ' + proj.projectAdmin || 'Brak ...'"></small></p>
+                <p class="card-text mt-4">
+                    <button class="btn btn-primary" type="button" ng-click="projectCtrl.openProject(proj.id)">Otwórz projekt</button>
+                    <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#updateProjectModal" ng-click="projectCtrl.project = proj">Edytuj</button>
+                    <button class="btn btn-danger" type="button" ng-click="projectCtrl.removeProject(proj.id)">Usuń</button>
+                </p>
+            </div>
+        </div>
+        <!-- project cards end -->
+        <!-- new project card -->
+        <div class="card col-4">
+            <div class="card-body text-center">
+                <h5 class="card-title">Nowy projekt</h5>
+                <p class="card-text" ng-show="projectCtrl.projectList.isEmptyObject()">Nie wykryto projektów w bazie danych.</p>
+                <p class="card-text mt-5"><button class="btn btn-success" type="button" data-toggle="modal" data-target="#createProjectModal">Stwórz nowy projekt</button></p>
+            </div>
+        </div>
+        <!-- new project card end -->
+    </div>
+    <!-- card-container end -->
+    <!-- modal create project -->
+    <div>
+        <div class="modal fade" id="createProjectModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Nowy projekt</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="project-name" class="col-form-label">Nazwa:</label>
+                                <input type="text" class="form-control" id="project-name" maxlength="40" ng-model="projectCtrl.project.name" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-description" class="col-form-label">Opis projektu:</label>
+                                <input type="text" class="form-control" id="project-description" maxlength="255" ng-model="projectCtrl.project.description" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-admin" class="col-form-label">Admin:</label>
+                                <input type="text" class="form-control" id="project-admin" maxlength="20" ng-model="projectCtrl.project.projectAdmin" ng-required="true">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" data-dismiss="modal" ng-click="projectCtrl.saveProject()">Stwórz</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal create project end -->
+    <!-- modal update project -->
+    <div>
+        <div class="modal fade" id="updateProjectModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edytuj</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="updateProject-name" class="col-form-label">Nazwa:</label>
+                                <input type="text" class="form-control" id="updateProject-name" maxlength="40" ng-value="projectCtrl.project.name" ng-model="projectCtrl.project.name" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="updateProject-description" class="col-form-label">Opis projektu:</label>
+                                <input type="text" class="form-control" id="updateProject-description" maxlength="255" ng-value="projectCtrl.project.description" ng-model="projectCtrl.project.description" ng-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="updateProject-admin" class="col-form-label">Admin:</label>
+                                <input type="text" class="form-control" id="updateProject-admin" maxlength="20" ng-value="projectCtrl.project.projectAdmin" ng-model="projectCtrl.project.projectAdmin" ng-required="true">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-info" data-dismiss="modal" ng-click="projectCtrl.updateProject(projectCtrl.project)">Zapisz zmiany</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal update project end -->
+</div>

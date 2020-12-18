@@ -1,0 +1,11 @@
+<div id="loginForm">
+    <div>
+        <form class="form-group" ng-submit="authCtrl.login()">
+            <h4 class="col-12 mb-5 text-center">Logowanie</h4>
+            <input name="username" type="text" class="form-control col-12 p-3" id ="loginInput" placeholder="Login" ng-model="authCtrl.user.login" required>
+            <input name="password" type="password" class="form-control col-12 mt-3 p-3" id="passwordInput" placeholder="Hasło" ng-model="authCtrl.user.password" required>
+            <button type="submit" class="btn btn-outline-success col-12 mt-3 mb-3">Zaloguj</button>
+            <p class="col-12 text-center">Nie masz konta? <a href="#!rejestracja" class="card-link"> Zarejestruj się!</a></p>
+        </form>
+    </div>
+</div>

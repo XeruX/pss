@@ -1,0 +1,15 @@
+INSERT INTO projects VALUES (1, 'Opis pierwszego projektu', 'Projekt nr 1', 'Jan Nowak');
+INSERT INTO projects VALUES (2, 'Opis drugiego projektu', 'Projekt nr 2', 'Andrzej Nowak');
+INSERT INTO projects VALUES (3, 'Opis trzeciego projektu', 'Projekt nr 3', 'Dominika Kowalska');
+INSERT INTO projects VALUES (4, 'Plany do zrealizowania podczas najbliższej wycieczki', 'Wycieczka', 'Filip Wiśniewski');
+INSERT INTO projects VALUES (5, 'Projekt realizacji sali w miejscowości Strzelce Dolne', 'Budowa sali gimnastycznej', 'Urszula Radomska');
+INSERT INTO sprints VALUES (1, '2019-11-30', '2020-4-15', 'Sprint nr 1', 1);
+INSERT INTO sprints VALUES (2, '2018-1-05', '2020-1-30', 'Sprint nr 2', 1);
+INSERT INTO sprints VALUES (3, '2020-05-01', '2020-09-30', 'Sprint nr 3', 1);
+INSERT INTO sprints VALUES (4, '2020-03-01', '2020-03-14', 'Sprint nr 1', 2);
+INSERT INTO sprints VALUES (5, '2017-10-10', '2017-12-16', 'Sprint nr 1', 3);
+INSERT INTO sprints VALUES (6, '2018-04-01', '2018-04-09', 'Sprint nr 2', 3);
+INSERT INTO sprints VALUES (7, '2021-03-30', '2021-04-24', 'Sprint nr 1', 4);
+INSERT INTO sprints VALUES (8, '2015-11-01', '2016-02-01', 'Sprint nr 1', 5);
+INSERT INTO sprints VALUES (9, '2016-03-01', '2020-09-15', 'Sprint nr 2', 5);
+INSERT INTO sprints VALUES (10, '2020-02-20', '2020-06-22', 'Sprint nr 3', 5);

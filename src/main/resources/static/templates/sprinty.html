@@ -1,0 +1,20 @@
+<div class="row mx-0">
+    <aside class="col-1 p-0 bg-white" ng-include="'templates/menuBar.html'" ng-show="showMenu"></aside>
+
+    <!-- container -->
+    <div class="container-fluid p-5 col-11 bg-white">
+        <div class="text-center">
+            <h3>Dostępne sprinty:</h3>
+            <h5 ng-show="sprintCtrl.isEmpty()">Brak sprintów!!!</h5>
+            <ul class="list-group-flush">
+                <li class="list-group-item" ng-repeat="sprint in sprintCtrl.sprintList">
+                    <p><strong>Opis: </strong><span ng-bind="sprint.description"></span></p>
+                    <p><strong>Data startu: </strong><span ng-bind="sprint.dateStart | date: 'dd-MM-yyyy'"></span></p>
+                    <p><strong>Data zakończenia: </strong><span ng-bind="sprint.dateEnd | date: 'dd-MM-yyyy'"></span></p>
+                    <p><strong>Projekt: </strong><span ng-bind="sprint.project.name"></span></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- container end -->
+</div>
