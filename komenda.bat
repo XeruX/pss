@@ -1,1 +1,0 @@
-mvn sonar:sonar -Dproject.settings=./sonar-project.properties -Dsonar.projectKey=utp.pss.patryklewandowski:ProjectManagementService -Dsonar.login=e1d7a33046fecec257b33073dd4a32d24e7666af
