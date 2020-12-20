@@ -21,8 +21,6 @@ public class Sprint {
     @JoinColumn(name = "project_id")
     private Project project;
 
-    public Sprint() {}
-
     public Long getId() {
         return id;
     }

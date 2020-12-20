@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/api/sp")
 public class StoryPointRestController {
 
-    public final StoryPointService spService;
+    private final StoryPointService spService;
 
     @Autowired
     public StoryPointRestController(StoryPointService spService) {

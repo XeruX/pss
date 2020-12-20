@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class SprintService {
 
-    public SprintRepository sprintRepository;
+    private SprintRepository sprintRepository;
 
     @Autowired
     public void setSprintRepository(SprintRepository sprintRepository) {

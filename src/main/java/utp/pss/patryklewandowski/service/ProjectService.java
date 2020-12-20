@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class ProjectService {
 
-    public ProjectRepository projectRepository;
+    private ProjectRepository projectRepository;
 
     @Autowired
     public void setProjectRepository(ProjectRepository projectRepository) {

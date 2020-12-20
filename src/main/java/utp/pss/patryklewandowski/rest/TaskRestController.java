@@ -20,9 +20,9 @@ import java.util.List;
 @RequestMapping("/api/task")
 public class TaskRestController {
 
-    public final TaskService taskService;
-    public final SprintService sprintService;
-    public final UserService userService;
+    private final TaskService taskService;
+    private final SprintService sprintService;
+    private final UserService userService;
 
     @Autowired
     public TaskRestController(TaskService taskService, SprintService sprintService, UserService userService) {
