@@ -67,16 +67,6 @@ public class SprintRestController {
         }
     }
 
-    /*@PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> update(@RequestBody Sprint updateSprint, @PathVariable Long id) {
-        if(updateSprint.getId() == id && sprintService.findById(id) != null) {
-            sprintService.save(updateSprint);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }*/
-
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> remove(@PathVariable Long id) {
         Sprint sprint = sprintService.findById(id);

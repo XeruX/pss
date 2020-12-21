@@ -54,17 +54,6 @@ public class UserRestController {
         }
     }
 
-    /*@PutMapping(path = "/{userName}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> update(@RequestBody User updateUser, @PathVariable String userName,
-                                    @RequestParam(defaultValue = "false") Boolean admin) {
-        if(updateUser.getLogin() == login && userService.findByLogin(userName) != null) {
-            userService.update(updateUser, admin);
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }*/
-
     @DeleteMapping(path = "/{userName}")
     public ResponseEntity<?> remove(@PathVariable String userName) {
         User user = userService.findByLogin(userName);
